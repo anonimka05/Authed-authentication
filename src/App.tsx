@@ -5,6 +5,8 @@ import "./index.css";
 import { Register } from "./components/Register";
 import { Login } from "./components/Login";
 import { Dashboard } from "./components/Dashboard";
+import ForgotPassword from "./components/ForgotPassword";
+// import { VerifyOtp } from "./components/VerifyOtp";
 
 const App: React.FC = () => {
   const { token } = useSelector((state: RootState) => state.auth);
@@ -28,8 +30,8 @@ const App: React.FC = () => {
       />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      {/* <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/verify-otp" element={<OtpVerification />} /> */}
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+      {/* <Route path="/verify-otp" element={<VerifyOtp />} /> */}
     </Routes>
   );
 };

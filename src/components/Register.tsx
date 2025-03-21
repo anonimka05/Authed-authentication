@@ -1,4 +1,4 @@
-import RegisterImg from "../assets/RegisterImg.svg";
+import BgImg from "../assets/BgImg.svg";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -133,7 +133,7 @@ export const Register: React.FC = () => {
       </div>
       <div className="relative bg-gradient-to-b from-[#3730A3] to-[#312E81] w-1/2 h-screen !ml-[190px] flex flex-col justify-center items-center">
         <img
-          src={RegisterImg}
+          src={BgImg}
           alt="Register image"
           className="w-[80%] h-screen mt-10"
         />

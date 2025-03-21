@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-// import { AuthState, User } from "./types";
 import { authService } from "@/services/auth";
 import { AuthState, User } from "./types";
 
@@ -10,7 +9,6 @@ const initialState: AuthState = {
   isLoading: false,
   error: null,
 };
-// console.log(localStorage.getItem("token"));
 
 // Async thunks
 export const loginUser = createAsyncThunk(
@@ -80,8 +78,22 @@ export const verifyOtp = createAsyncThunk(
   }
 );
 
+export const forgotPassword = createAsyncThunk(
+  "auth/forgotPassword",
+  async ({ email }: { email: string }, { rejectWithValue }) => {
+    try {
+      const response = await authService.forgotPassword(email);
+      return response;
+    } catch (error: any) {
+      return rejectWithValue(
+        error.response?.data?.message || "Forgot password request failed"
+      );
+    }
+  }
+);
+
 // Auth slice
-const authSlice = createSlice({
+export const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {

@@ -19,7 +19,7 @@ export const Login: React.FC = () => {
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    dispatch(loginUser({ email: "nimaidr@gmial.com", password: "12345678" }))
+    dispatch(loginUser({ email, password }))
       .unwrap()
       .then(() => {
         toast.success("Login succesfully!");
@@ -33,6 +33,10 @@ export const Login: React.FC = () => {
 
   const handleClick = () => {
     navigate("/register");
+  };
+
+  const handleForgotClick = () => {
+    navigate("/forgot-password");
   };
 
   return (
@@ -69,6 +73,7 @@ export const Login: React.FC = () => {
           <label
             htmlFor="text"
             className="ml-50 text-[14px] font-bold text-[#4F46E5] cursor-pointer"
+            onClick={handleForgotClick}
           >
             Parolni unutdingizmi?
           </label>
@@ -85,6 +90,7 @@ export const Login: React.FC = () => {
             <p className="font-bold ml-2">Saqlansin</p>
           </div>
           <Button
+            type="submit"
             className="w-full bg-[#4F46E5] h-[63px] text-white cursor-pointer"
             disabled={isLoading}
           >
